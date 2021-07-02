@@ -1,0 +1,16 @@
+{
+  "id": "2628726",
+  "name": "weipinghui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "840616",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

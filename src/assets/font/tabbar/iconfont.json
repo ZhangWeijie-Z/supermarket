@@ -1,0 +1,58 @@
+{
+  "id": "2592129",
+  "name": "TabBar",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7008946",
+      "name": "homepage_fill",
+      "font_class": "homepage_fill",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "7008947",
+      "name": "homepage",
+      "font_class": "homepage",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "7008978",
+      "name": "people_fill",
+      "font_class": "people_fill",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "7008979",
+      "name": "people",
+      "font_class": "people",
+      "unicode": "e716",
+      "unicode_decimal": 59158
+    },
+    {
+      "icon_id": "7008990",
+      "name": "qrcode_fill",
+      "font_class": "qrcode_fill",
+      "unicode": "e71c",
+      "unicode_decimal": 59164
+    },
+    {
+      "icon_id": "7008991",
+      "name": "qrcode",
+      "font_class": "qrcode",
+      "unicode": "e71d",
+      "unicode_decimal": 59165
+    },
+    {
+      "icon_id": "7009045",
+      "name": "publish goods_fill",
+      "font_class": "publishgoods_fill",
+      "unicode": "e746",
+      "unicode_decimal": 59206
+    }
+  ]
+}
