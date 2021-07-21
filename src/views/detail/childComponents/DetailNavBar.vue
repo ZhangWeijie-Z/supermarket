@@ -4,7 +4,9 @@
       <span class="iconfont back icon-back"></span>
     </div>
     <div slot='center' class='nav-title'>
-      <div v-for='(item,index) in titles' :class='{active:index === currentIndex}' class='title-item' @click='itemClick(index)'>{{ item }}</div>
+      <div v-for='(item,index) in titles' :class='{active:index === currentIndex}' class='title-item'
+        @click='itemClick(index)'>{{ item }}
+      </div>
     </div>
   </nav-bar>
 </template>
@@ -27,6 +29,7 @@ export default {
     //顶部item栏点击切换方法
     itemClick(index) {
       this.currentIndex = index
+      this.$emit('titleClick', index)
     },
     //返回按钮返回方法
     backClick() {
@@ -36,34 +39,34 @@ export default {
 }
 </script>
 <style scoped>
-  .detail-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background: #fff;
-  }
+.detail-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #fff;
+}
 
-  .nav-left span {
-    font-size: 22px;
-  }
+.nav-left span {
+  font-size: 22px;
+}
 
-  .nav-left:active {
-    color: var(--color-tint);
-  }
+.nav-left:active {
+  color: var(--color-tint);
+}
 
-  .nav-title {
-    display: flex;
-    font-size: 16px;
-  }
+.nav-title {
+  display: flex;
+  font-size: 16px;
+}
 
-  .title-item {
-    flex: 1;
-  }
+.title-item {
+  flex: 1;
+}
 
-  .active {
-    color: var(--color-tint);
-  }
+.active {
+  color: var(--color-tint);
+}
 </style>

@@ -9,10 +9,10 @@ export default {
 }
 </script>
 <style scoped>
-  .base-info {
-    padding: 15px 15px;
-    margin: 10px;
-    background-color: #fff;
-    border-radius: 15px;
-  }
+.base-info {
+  padding: 15px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+}
 </style>

@@ -18,8 +18,9 @@ export default {
 }
 </script>
 <style>
-  @import 'assets/css/base.css';
-  @import 'assets/font/tabbar/iconfont.css';
-  @import 'assets/font/backtop/iconfont.css';
-  @import 'assets/font/detail/iconfont.css';
+@import 'assets/css/base.css';
+@import 'assets/font/tabbar/iconfont.css';
+@import 'assets/font/backtop/iconfont.css';
+@import 'assets/font/detail/iconfont.css';
+@import 'assets/font/DetailBottomBar/iconfont.css';
 </style>

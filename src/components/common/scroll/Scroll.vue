@@ -31,25 +31,29 @@ export default {
   },
   methods: {
     initScroll() {
-      this.bs = new BS(this.$refs.Scroll, {
-        probeType: this.probeType,
-        pullUpLoad: this.pullUpLoad,
-        click: true,
-        scrollY: true,
-        scrollbar: true,
-        bounce: {
-          top: false,
-          bottom: true
-        }
-      })
-
-      //监听滚动事件
-      if (this.probeType === 2 || this.probeType === 3) {
-        this.bs.on('scroll', position => {
-          // console.log(position)
-          //发送滚动事件 此处为返回顶部按钮事件
-          this.$emit('watchScroll', position)
+      if(this.$refs.Scroll){
+        this.bs = new BS(this.$refs.Scroll, {
+          probeType: this.probeType,
+          pullUpLoad: this.pullUpLoad,
+          click: true,
+          scrollY: true,
+          scrollbar: true,
+          bounce: {
+            top: false,
+            bottom: true
+          }
         })
+      }
+
+      if(this.$refs.Scroll){
+        //监听滚动事件
+        if (this.probeType === 2 || this.probeType === 3) {
+          this.bs.on('scroll', position => {
+            // console.log(position)
+            //发送滚动事件 此处为返回顶部按钮事件
+            this.$emit('watchScroll', position)
+          })
+        }
       }
 
       //上拉加载事件

@@ -5,7 +5,7 @@
     <!-- 第二部分：服务选择区域 -->
     <detail-choose :goods='goods' />
     <!-- 第三部分：评论区域 -->
-    <detail-rate :goods='goods' />
+    <detail-rate :goods='goods' ref="rate" />
     <!-- 第四部分：商家信息区域 -->
     <detail-shop :shop='shop' />
   </div>
@@ -37,6 +37,9 @@ export default {
         return {}
       }
     }
+  },
+  updated() {
+    this.$emit('rateOffsetTop', this.$refs.rate.$el.offsetTop - 45)
   }
 }
 </script>

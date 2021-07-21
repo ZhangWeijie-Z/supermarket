@@ -7,7 +7,8 @@
     <!-- 吸顶tab控制栏-->
     <tab-control v-show='isTabFixed' ref='topTabControl' :titles=titles class='tab-control' @tabClick='tabClick' />
     <!-- 使用封装的better-scroll组件-->
-    <scroll ref='scroll' :probe-type='3' :pull-up-load='true' class='container' @pullUpLoad='loadMore' @watchScroll='watchScroll'>
+    <scroll ref='scroll' :probe-type='3' :pull-up-load='true' class='container' @pullUpLoad='loadMore'
+      @watchScroll='watchScroll'>
       <!-- banner横幅图 -->
       <home-swiper :banners='banners' @SwiperImgLoad='SwiperImgLoad' />
       <!-- 推荐列表 -->
@@ -20,16 +21,16 @@
       <goods-list :goods=showGoods />
       <!-- 下拉字体提示 -->
       <div class="pullup-tips">
-        <div v-if="!isPullUpLoad" class="before-trigger">
+        <div v-show="!isPullUpLoad" class="before-trigger">
           <span class="pullup-txt">下拉加载更多</span>
         </div>
-        <div v-else class="after-trigger">
+        <div v-show="isPullUpLoad" class="after-trigger">
           <span class="pullup-txt">加载中~~</span>
         </div>
       </div>
     </scroll>
     <!-- 返回顶部按钮组件 -->
-    <back-top v-show='isShowBackTop' @click.native='backClick' />
+    <back-top v-show='isShowBackTop' @click.native='backTop' />
   </div>
 </template>
 <script>
@@ -41,13 +42,14 @@ import NavBar from "components/common/navbar/NavBar"
 import TabControl from "components/content/tabControl/TabControl"
 import GoodsList from "components/content/goods/GoodsList"
 import Scroll from "components/common/scroll/Scroll"
-import BackTop from "components/common/backTop/BackTop"
 
-import {getHomeMultidata, getHomeGoods} from "network/home"
+import {getHomeGoods, getHomeMultidata} from "network/home"
 import {debounce} from "utils/utils"
+import {backTopMixin} from "utils/mixin";
 
 export default {
   name: "Home",
+  mixins: [backTopMixin],
   components: {
     HomeSwiper,
     HomeRecommend,
@@ -55,8 +57,7 @@ export default {
     NavBar,
     TabControl,
     GoodsList,
-    Scroll,
-    BackTop
+    Scroll
   },
   data() {
     return {
@@ -72,8 +73,6 @@ export default {
       },
       //tabControl默认选中pop
       currentType: 'pop',
-      //返回顶部按钮是否显示
-      isShowBackTop: false,
       //判断下拉显示的提示字显示状态
       isPullUpLoad: false,
       //初始化tabControl距离顶部位置
@@ -128,14 +127,10 @@ export default {
       this.$refs.tabControl.currentIndex = index
       this.$refs.topTabControl.currentIndex = index
     },
-    //回到顶部按钮
-    backClick() {
-      this.$refs.scroll.scrollTo(0, 0, 1000)
-    },
     //监听滚动方法 显示回到顶部按钮
     watchScroll(position) {
       //1.返回顶部按钮大于-1000时显示
-      this.isShowBackTop = Math.abs(position.y) > 1000
+      this.watchBackTop(position)
 
       //2.判断tabControl栏是否吸顶(position:fixed)
       this.isTabFixed = Math.abs(position.y) > this.tabOffsetTop
@@ -174,7 +169,7 @@ export default {
   },
   //keep-alive组件激活时调用
   activated() {
-    this.$refs.scroll.scrollTo(0, this.saveY, 0)
+    this.$refs.scroll.scrollTo(0, this.saveY)
     this.$refs.scroll.refresh()
   },
   //keep-alive组件离开时调用
@@ -184,35 +179,35 @@ export default {
 }
 </script>
 <style scoped>
-  #home {
-    height: 100vh;
-    position: relative;
-  }
+#home {
+  height: 100vh;
+  position: relative;
+}
 
-  .tab-control {
-    position: relative;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .2);
-  }
+.tab-control {
+  position: relative;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .2);
+}
 
-  .home-navbar {
-    background-color: var(--color-tint);
-    color: #fff;
-    font-size: 18px;
-  }
+.home-navbar {
+  background-color: var(--color-tint);
+  color: #fff;
+  font-size: 18px;
+}
 
-  .container {
-    overflow: hidden;
-    position: absolute;
-    top: 44px;
-    bottom: 49px;
-    left: 0;
-    right: 0;
-  }
+.container {
+  overflow: hidden;
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+}
 
-  .pullup-tips {
-    display: block;
-    padding: 20px;
-    text-align: center;
-    color: var(--color-tint);
-  }
+.pullup-tips {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: var(--color-tint);
+}
 </style>
