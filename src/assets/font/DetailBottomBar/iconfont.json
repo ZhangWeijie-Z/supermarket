@@ -1,0 +1,37 @@
+{
+  "id": "2628726",
+  "name": "weipinghui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "968462",
+      "name": "选中",
+      "font_class": "check2",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "947474",
+      "name": "店铺",
+      "font_class": "dianpu",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "8102714",
+      "name": "客服",
+      "font_class": "icon-test",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "19954259",
+      "name": "收 藏 (1)",
+      "font_class": "shoucang1",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    }
+  ]
+}
