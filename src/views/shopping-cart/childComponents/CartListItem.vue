@@ -1,19 +1,19 @@
 <template>
   <div class="cartItem">
-    <p>{{ product.shopName }}</p>
+    <p @click="itemClick">{{ product.shopName }}</p>
     <div class="itemCon">
       <div class="item-left">
         <check-button :is-checked="product.checked" @click.native="checkClick"/>
       </div>
       <div class="item-center">
-        <a href="javascript:">
+        <a href="javascript:" @click="itemClick">
           <img :src=product.image alt="">
         </a>
       </div>
       <div class="item-right">
-        <span>{{ product.title }}</span>
-        <span>{{ product.desc }}</span>
-        <span><a>¥ </a>{{ product.price }}</span>
+        <span @click="itemClick">{{ product.title }}</span>
+        <span @click="itemClick">{{ product.desc }}</span>
+        <span @click="itemClick"><a>¥ </a>{{ product.price }}</span>
         <div class="add">
           <button @click="product.count --" :class="{BAN:product.count === 1}" :disabled="product.count === 1">-
           </button>
@@ -48,6 +48,9 @@ export default {
     checkClick() {
       this.product.checked = !this.product.checked
     },
+    itemClick() {
+      this.$router.push('/detail/' + this.product.iid)
+    }
   },
 }
 </script>
@@ -72,10 +75,11 @@ export default {
 }
 
 .item-left {
-  flex: 1;
+  flex: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
 }
 
 .item-center {
@@ -83,7 +87,6 @@ export default {
   height: 120px;
   overflow: hidden;
   border-radius: 15px;
-  margin: 0 10px;
 }
 
 .item-center img {
@@ -94,6 +97,7 @@ export default {
 .item-right {
   flex: 5.5;
   position: relative;
+  margin-left: 10px;
 }
 
 .item-right span {
@@ -157,9 +161,10 @@ export default {
   border: none;
   background-color: #fff;
   padding: 5px 10px;
+  color: var(--color-tint);
 }
 
 .BAN {
-  color: #dbdbdb;
+  color: #dbdbdb !important;
 }
 </style>

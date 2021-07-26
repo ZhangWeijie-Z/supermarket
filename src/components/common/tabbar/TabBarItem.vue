@@ -19,11 +19,6 @@ export default {
       default: 'pink'
     }
   },
-  data() {
-    return {
-      // isShow: true
-    }
-  },
   computed: {
     isShow() {
       //indexOf返回对应的索引，找不到则返回-1
@@ -41,19 +36,19 @@ export default {
 }
 </script>
 <style scoped>
-  .tab-bar-item {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: center;
-    height: 49px;
-    box-sizing: border-box;
-    padding-top: 3px;
-    font-size: 15px;
-  }
+.tab-bar-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+  height: 49px;
+  box-sizing: border-box;
+  padding-top: 3px;
+  font-size: 15px;
+}
 
-  .tab-bar-item > div span {
-    flex: 1;
-    font-size: 22px;
-  }
+.tab-bar-item > div span {
+  flex: 1;
+  font-size: 22px;
+}
 </style>

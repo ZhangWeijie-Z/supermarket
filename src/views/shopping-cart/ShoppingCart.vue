@@ -10,9 +10,9 @@
       <button @click="goHome">去逛逛</button>
     </div>
     <!--  商品列表  -->
-    <cart-list v-show="cartLength !== 0" />
+    <cart-list v-show="cartLength !== 0"/>
     <!--  底部列表汇总  -->
-    <cart-bottom-bar v-show="cartLength !== 0" />
+    <cart-bottom-bar v-show="cartLength !== 0"/>
   </div>
 </template>
 <script>

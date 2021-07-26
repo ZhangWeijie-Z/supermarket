@@ -67,3 +67,7 @@ li {
   transform: rotateY(180deg);
   color: var(--color-tint);
 }
+
+* {
+  touch-action: none;
+}

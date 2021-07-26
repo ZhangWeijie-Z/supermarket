@@ -1,4 +1,6 @@
 module.exports = {
+  //基本路径
+  publicPath: './',
   configureWebpack: {
     resolve: {
       //配置省略后缀名
@@ -12,5 +14,5 @@ module.exports = {
         'views': '@/views'
       }
     }
-  }
+  },
 }

@@ -11,7 +11,7 @@ export default {
       if (oldProduct) {
         // oldProduct.count += 1
         context.commit(ADD_COUNT, oldProduct)
-        resolve('购物车数量加1~')
+        resolve('购物车数量增加~')
       } else {
         payload.count = 1
         // state.cartList.push(payload)

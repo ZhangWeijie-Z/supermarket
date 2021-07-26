@@ -1,21 +1,21 @@
 import BackTop from "components/common/backTop/BackTop"
 
 export const backTopMixin = {
-  components:{
+  components: {
     BackTop
   },
-  data(){
-    return{
+  data() {
+    return {
       //显示回到顶部按钮
       isShowBackTop: false,
     }
   },
-  methods:{
+  methods: {
     //回到顶部按钮
     backTop() {
       this.$refs.scroll.scrollTo(0, 0, 1000)
     },
-    watchBackTop(position){
+    watchBackTop(position) {
       this.isShowBackTop = Math.abs(position.y) > 1000
     }
   }
